@@ -106,35 +106,35 @@ function filteredCountries(countries) {
         if (this.value === "Europe") {
             for (const i of countries) {
                 i.classList.remove("hidden")
-                if (i.lastElementChild.children[3].children[0].textContent !== "Europe") {
+                if (i.lastElementChild.children[2].children[0].textContent !== "Europe") {
                     i.classList.add("hidden")
                 }
             }
         } else if (this.value === "Africa") {
             for (const i of countries) {
                 i.classList.remove("hidden")
-                if (i.lastElementChild.children[3].children[0].textContent !== "Africa") {
+                if (i.lastElementChild.children[2].children[0].textContent !== "Africa") {
                     i.classList.add("hidden")
                 }
             }
         } else if (this.value === "Asia") {
             for (const i of countries) {
                 i.classList.remove("hidden")
-                if (i.lastElementChild.children[3].children[0].textContent !== "Asia") {
+                if (i.lastElementChild.children[2].children[0].textContent !== "Asia") {
                     i.classList.add("hidden")
                 }
             }
         } else if (this.value === "America") {
             for (const i of countries) {
                 i.classList.remove("hidden")
-                if (i.lastElementChild.children[3].children[0].textContent !== "Americas") {
+                if (i.lastElementChild.children[2].children[0].textContent !== "Americas") {
                     i.classList.add("hidden")
                 }
             }
         } else if (this.value === "Oceania") {
             for (const i of countries) {
                 i.classList.remove("hidden")
-                if (i.lastElementChild.children[3].children[0].textContent !== "Oceania") {
+                if (i.lastElementChild.children[2].children[0].textContent !== "Oceania") {
                     i.classList.add("hidden")
                 }
             }
