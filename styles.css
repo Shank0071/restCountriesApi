@@ -160,3 +160,28 @@ section .container select {
     cursor: pointer;
     transform: scale(1.1);
 }
+
+@media(max-width:950px) {
+    #filterAndSearch {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    #filterAndSearch div {
+        width: 100%;
+    }
+
+    .countries {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        width: 100%;
+    }
+
+    .indivCountryInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+}
