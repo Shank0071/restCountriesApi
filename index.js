@@ -4,6 +4,7 @@ const section2 = document.querySelector(".section-2");
 const section2CountryContainer = document.querySelector(".section-2 .container .country1");
 const backBtn = document.getElementById("back");
 let select = document.querySelector("select");
+const input = document.querySelector("input");
 
 
 const country1 = document.querySelector(".country1");
@@ -47,16 +48,17 @@ function displayCountries(data) {
             <div class="flag"><img src=${j[0].flags.png} alt="flag"></div>
             <div class="general-info">
                 <h1 style="margin-bottom: 0.6rem">${j[0].name.common}</h1>
-                <p>Population: <span>${j[0].population}</span><p>
-                <p>Region: <span>${j[0].region}</span>
+                <p>Population: <span>${j[0].population}</span></p>
+                <p>Region: <span>${j[0].region}</span></p>
                 <p>Capital: ${j[0].capital}</p>
             </div>
         </div>
         `
         countriesContainer.insertAdjacentHTML("beforeend", html)
     }
-    console.log(Array.from(countriesContainer.children)[0].lastElementChild.children[3].children[0].textContent)
+    console.log(Array.from(countriesContainer.children)[0].lastElementChild.children[0].textContent)
     filteredCountries(Array.from(countriesContainer.children))
+    searchCountry(Array.from(countriesContainer.children))
 } 
 
 function displayCountryInfo(country) {
@@ -163,13 +165,19 @@ theme.addEventListener("click", function() {
         select.style.color = "white";
         backBtn.style.boxShadow = "1px 3px 5px rgba(0,0,0,0.2)";
         backBtn.style.color = "white"; 
+        document.querySelector("input").style.color = "white";
     }
 })
 
-// function searchCountry()
-
-
-
+function searchCountry(countries) {
+    input.addEventListener("keyup", function() {
+        const term = input.value.toLowerCase()
+        countries.filter(c => !c.lastElementChild.children[0].textContent.toLowerCase().includes(term))
+                 .forEach(co => co.classList.add("hidden"))
+        countries.filter(c => c.lastElementChild.children[0].textContent.toLowerCase().includes(term))
+                 .forEach(co => co.classList.remove("hidden"))
+    })
+}
 
 
 
