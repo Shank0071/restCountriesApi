@@ -3,7 +3,7 @@
 Integration with the [REST Countries API](https://restcountries.com) to pull country data and display it like in the designs.
 
 Tools Used to complete this challenge:
-  HTML, CSS, Javascript
+  HTML, CSS and Javascript
 
 Users will be able to:
 
