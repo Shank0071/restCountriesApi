@@ -13,12 +13,23 @@ const country1 = document.querySelector(".country1");
 
 
 
-const countriesArray = ["germany", "usa", "brazil", "iceland", "afghanistan", "albania", "algeria", "india", "australia", "iceland", "russia"];
+let countriesArray = ["germany", "usa", "brazil", "iceland", "afghanistan", "albania", "algeria", "india", "australia", "iceland", "russia"];
 
+
+const getCountriesArray = async () => {
+    const arr1 = []
+    const response = await fetch(`https://restcountries.com/v3.1/all`);
+    const data = await response.json();
+    data.map(d => arr1.push(d.name.common))
+    return arr1
+
+} 
 
 const data = []
 
 const getCountries = async () => {
+    countriesArray = await getCountriesArray()
+    console.log(countriesArray)
     for (let i = 0; i < countriesArray.length; i++) {
         const response = await fetch(`https://restcountries.com/v3.1/name/${countriesArray[i]}`);
         const data1 = await response.json();
@@ -45,7 +56,7 @@ function displayCountries(data) {
     for (const j of data) {
         const html = `
         <div class="country-info">
-            <div class="flag"><img src=${j[0].flags.png} alt="flag"></div>
+            <div class="flag"><img src=${j[0].flags.png} loading="lazy" alt="flag"></div>
             <div class="general-info">
                 <h1 style="margin-bottom: 0.6rem">${j[0].name.common}</h1>
                 <p>Population: <span>${j[0].population}</span></p>
@@ -72,7 +83,7 @@ function displayCountryInfo(country) {
         console.log(typeof obj1)
         const html1 = `
         <div class="indivCountryInfo">
-            <div class="flag"><img src=${data[0].flags.png} alt="flag"></div>
+            <div class="flag"><img class="shadow" src=${data[0].flags.png} loading="lazy" alt="flag"></div>
             <div class="other-info">
                 <h1 style="margin-bottom:2rem">${country.toUpperCase().slice(0,1) + country.toLowerCase().slice(1)}</h1>
                 <p>Native Name: <span>${data[0].name.nativeName[obj1]["common"]}</span></p>

@@ -111,6 +111,7 @@ section .container select {
 }
 
 .country-info {
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -133,6 +134,13 @@ section .container select {
     display: none;
 }
 
+
+
+.section-2 .container {
+    display: grid;
+    place-content: center;
+}
+
 #back {
     margin: 2rem;
     padding: 5px 16px;
@@ -143,18 +151,31 @@ section .container select {
     border-radius: 5px;
 }
 
+.shadow {
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.5);
+}
+
+.center {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
 .other-info {
     background-color: var(--color-dark-blue);
     padding: 2rem;
     border-radius: 0.5rem;
     line-height: 2rem;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.5);
 }
 
 
 .indivCountryInfo {
+    width: 100%;
     display: flex;
-    gap: 10rem;
+    gap: 2rem;
 }
+
 
 .darkmode:hover {
     cursor: pointer;
@@ -162,15 +183,12 @@ section .container select {
 }
 
 @media(max-width:950px) {
+
+   
     #filterAndSearch {
         display: flex;
-        flex-direction: column;
-        gap: 1rem;
     }
 
-    #filterAndSearch div {
-        width: 100%;
-    }
 
     .countries {
         grid-template-columns: 1fr;
